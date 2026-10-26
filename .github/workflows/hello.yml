@@ -1,0 +1,22 @@
+# name of workflow
+name: Hello_first_workflow
+# On tells when the workflow should run
+# this is a trigger
+on: 
+  push:
+    branches:
+      - main
+# job tells what the workflow should do, there can be one or more than one jobs, hence we write jobs
+# jobs is an object so need indentation
+jobs:
+  #first job
+  say-hello:
+    # creates an Ephermal container with ubuntu running
+    runs-on: ubuntu-latest
+    #That ephermal container will have steps to execute, hence name those steps and use run: run has the command.
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Print Hello
+        run: echo "Hello from GitHub Actions!"
+
