@@ -15,8 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     #That ephermal container will have steps to execute, hence name those steps and use run: run has the command.
     steps:
+      # this will bring the code into Github action runner which is ubuntu for the moment.
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Print Hello
         run: echo "Hello from GitHub Actions!"
+      - name: Print the current date and time
+        run: date
+      - name: Printing name of the branch that triggered the workflow
+        run: echo "Branch:" ${{ github.ref_name }}
+      - name: Printing Runner's operating system
+        run: echo "Runner OS:" ${{ runner.os }}
 
+       
