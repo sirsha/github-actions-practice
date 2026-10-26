@@ -19,7 +19,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Print Hello
-        run: echo "Hello from GitHub Actions!"
+        run: |
+          echo "Hello from GitHub Actions!"
+          exit 1
       - name: Print the current date and time
         run: date
       - name: Printing name of the branch that triggered the workflow
