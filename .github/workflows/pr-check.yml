@@ -1,0 +1,19 @@
+name: pull-request-check
+# On tells when the workflow should run
+# this is a trigger
+on: 
+  pull_request:
+  
+    branches:
+      - main
+# job tells what the workflow should do, there can be one or more than one jobs, hence we write jobs
+# jobs is an object so need indentation
+jobs:
+  #first job
+  pr-check:
+    # creates an Ephermal container with ubuntu running
+    runs-on: ubuntu-latest
+    #That ephermal container will have steps to execute, hence name those steps and use run: run has the command.
+    steps:
+      - name: Print PR Checking running for the branch:
+        runs: echo "PR check running for branch:" ${{ github.head_ref}} 
